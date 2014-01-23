@@ -1,6 +1,6 @@
 # afs
 ## Table of Contents
-1. [Overview - What is the Apache module?](#overview)
+1. [Overview - What is the AFS module?](#overview)
 2. [Module Description - What does the module do?](#module-description)
 3. [Setup - The basics of getting started with AFS](#setup)
     * [Beginning with AFS - Installation](#beginning-with-afs)
@@ -107,7 +107,7 @@ Please create issues and pull-requests at our project site [puppet-afs](https://
 DESY IT Puppet Administrators - it-puppet-admin@desy.de
 
 ## Copyright and License
-Copyright (C) 2012 [Deutsches Elektronen-Synchrotron DESY](https://www.desy.de/)
+Copyright (C) 2014 [Deutsches Elektronen-Synchrotron DESY](https://www.desy.de/)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
