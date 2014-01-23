@@ -20,5 +20,5 @@ class afs::client (
   class {'::afs::client::install': } ->
   class {'::afs::client::config': } ~>
   class {'::afs::client::service': } ->
-  anchor {'::afs::client::end': }
+  anchor {'afs::client::end': }
 }
