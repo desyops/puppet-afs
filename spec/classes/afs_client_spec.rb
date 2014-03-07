@@ -88,10 +88,10 @@ describe 'afs::client', :type => :class do
       it { should contain_file('afs.conf').with_content(/AFS_SYSNAME="amd64_ubu124 amd64_linux26"/)}
       it { should contain_file('afs.conf.client').with({
         'ensure' => 'present',
-	'path'   => '/etc/openafs/afs.conf.client',
-	'owner'  => 'root',
-	'group'  => 'root',
-	'mode'   => '0644',
+        'path'   => '/etc/openafs/afs.conf.client',
+        'owner'  => 'root',
+        'group'  => 'root',
+        'mode'   => '0644',
       })}
       it { should contain_file('cacheinfo').with({
         'ensure'  => 'present',
@@ -109,7 +109,7 @@ describe 'afs::client', :type => :class do
       it { should contain_service('afs').with({
         'ensure'    => 'running',
         'enable'    => true,
-	'hasstatus' => false,
+        'hasstatus' => false,
         'name'      => 'afs',
       })}
     end
@@ -117,9 +117,9 @@ describe 'afs::client', :type => :class do
       let(:facts) {{ :operatingsystem => 'Debian' }}
       it { should contain_service('afs').with({
         'ensure'    => 'running',
-	'enable'    => true,
-	'hasstatus' => false,
-	'name'      => 'openafs-client',
+        'enable'    => true,
+        'hasstatus' => false,
+        'name'      => 'openafs-client',
       })}
     end
   end
