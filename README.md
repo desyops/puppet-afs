@@ -96,7 +96,7 @@ Name of the client OpenAFS client package. Defaults to 'openafs-client' for Scie
 Name of the KRB5 package. Defaults to 'openafs-krb5' for Scientific Linux and Debian/Ubuntu. On Debian/Ubuntu installes additionally 'libpam-afs-session' for PAM support.
 
 ##### `service_name`
-Service name for the OpenAFS client daemon. Defaults to 'afs' for Scientific Liunux and 'openafs-client' for Debian/Ubuntu.
+Service name for the OpenAFS client daemon. Defaults to 'afs' for Scientific Linux and 'openafs-client' for Debian/Ubuntu.
 
 ##### `service_status`
 Service status available for the OpenAFS client daemon. Defaults to 'true' for Scientific Linux and 'false' for Debian/Ubuntu.
