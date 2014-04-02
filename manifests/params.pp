@@ -12,6 +12,7 @@ class afs::params {
       $client_package_name = 'openafs-client'
       $krb5_package_name = 'openafs-krb5'
       $client_service_name = 'afs'
+      $client_service_status = true
     }
     'Ubuntu': {
       $client_cache_dir = '/var/cache/openafs'
@@ -21,6 +22,7 @@ class afs::params {
       $client_package_name = 'openafs-client'
       $krb5_package_name = ['openafs-krb5', 'libpam-afs-session']
       $client_service_name = 'openafs-client'
+      $client_service_status = false
     }
     'Debian': {
       $client_cache_dir = '/var/cache/openafs'
@@ -30,6 +32,7 @@ class afs::params {
       $client_package_name = 'openafs-client'
       $krb5_package_name = ['openafs-krb5', 'libpam-afs-session']
       $client_service_name = 'openafs-client'
+      $client_service_status = false
     }
     default: {
       fail("${module_name} is not supported on ${::operatingsystem}.")

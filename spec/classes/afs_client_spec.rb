@@ -109,7 +109,7 @@ describe 'afs::client', :type => :class do
       it { should contain_service('afs').with({
         'ensure'    => 'running',
         'enable'    => true,
-        'hasstatus' => false,
+        'hasstatus' => true,
         'name'      => 'afs',
       })}
     end

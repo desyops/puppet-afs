@@ -14,6 +14,7 @@ class afs::client (
   $package_name      = $afs::params::client_package_name,
   $krb5_package_name = $afs::params::krb5_package_name,
   $service_name      = $afs::params::client_service_name,
+  $service_status    = $afs::params::client_service_status,
 ) inherits afs::params {
 
   anchor {'afs::client::begin': } ->

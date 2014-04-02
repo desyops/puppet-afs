@@ -98,6 +98,9 @@ Name of the KRB5 package. Defaults to 'openafs-krb5' for Scientific Linux and De
 ##### `service_name`
 Service name for the OpenAFS client daemon. Defaults to 'afs' for Scientific Liunux and 'openafs-client' for Debian/Ubuntu.
 
+##### `service_status`
+Service status available for the OpenAFS client daemon. Defaults to 'true' for Scientific Linux and 'false' for Debian/Ubuntu.
+
 ## Limitations
 This has been tested on Scientific Linux 6, Ubuntu 12.04 and Debian 7. Currently, only a client installation of OpenAFS is supported.
 
