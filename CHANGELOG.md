@@ -1,3 +1,9 @@
+## 2014-04-02 Release 0.6.1
+### Summary:
+Bugfix release
+* Add service_status variable for unavailable status action in init script
+* Add header to puppet managed files
+
 ## 2014-04-02 Release 0.6.0
 ### Summary:
 Remove duplicate client prefixes from variables. This more or less breaks
