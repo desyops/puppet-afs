@@ -42,9 +42,9 @@ To configure the OpenAFS client, declare the afs::client class:
 
 ```puppet
 class {'afs::client':
-  cell              => 'desy.de',
-  client_cache_dir  => '/var/cache/afs',
-  client_cache_size => '100000',
+  cell       => 'desy.de',
+  cache_dir  => '/var/cache/afs',
+  cache_size => '100000',
 }
 ```
 
@@ -52,8 +52,8 @@ Alternatively, you can use Hiera and [Automatic Parameter Lookup](http://docs.pu
 
 ```yaml
 afs::client::cell: 'desy.de'
-afs::client::client_cache_dir: '/var/cache/afs'
-afs::client::client_cache_size: '100000'
+afs::client::cache_dir: '/var/cache/afs'
+afs::client::cache_size: '100000'
 ```
 
 The above examples will configure the client to use a specific cache directory and size and will belong to the cell *desy.de*.
@@ -75,27 +75,27 @@ AFS cell the client should belong to. Defaults to 'example.org'
 ##### `afs_mount_point`
 Mountpoint for AFS. Defaults to '/afs'
 
-##### `client_cache_dir`
+##### `cache_dir`
 Cache directory for the AFS client. Should be a dedicated partition. Defaults to '/var/cache/afs' for Scientific Linux and '/var/cache/openafs' for Debian/Ubuntu.
 
-##### `client_cache_size`
+##### `cache_size`
 Cache size for the AFS client. Should be 85% of `client_cache_dir`, if used on a dedicated partition. Defaults to 'AUTOMATIC' for Scientific Linux, the init value determines the actual cache size and sets the appropiate value.
 
 For Debian/Ubuntu, this defaults to '50000'.
 
-##### `afs_sysname`
+##### `sysname`
 Configure the AFS sysname for @sys variable in AFS pathnames. Supports an array of sysname.
 
 ##### `config_path`
 The configuration path for the client configuration files. Defaults to '/usr/vice/etc' for Scientific Linux and '/etc/openafs-client' for Debian/Ubuntu.
 
-##### `client_package_name`
+##### `package_name`
 Name of the client OpenAFS client package. Defaults to 'openafs-client' for Scientifc Linux and Debian/Ubuntu.
 
 ##### `krb5_package_name`
 Name of the KRB5 package. Defaults to 'openafs-krb5' for Scientific Linux and Debian/Ubuntu. On Debian/Ubuntu installes additionally 'libpam-afs-session' for PAM support.
 
-##### `client_service_name`
+##### `service_name`
 Service name for the OpenAFS client daemon. Defaults to 'afs' for Scientific Liunux and 'openafs-client' for Debian/Ubuntu.
 
 ## Limitations

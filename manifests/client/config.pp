@@ -1,11 +1,11 @@
 #PRIVATE CLASS: Do not call directly
 class afs::client::config {
-  $cell              = $afs::client::cell
-  $afs_mount_point   = $afs::client::afs_mount_point
-  $client_cache_dir  = $afs::client::client_cache_dir
-  $client_cache_size = $afs::client::client_cache_size
-  $afs_sysname       = $afs::client::afs_sysname
-  $config_path       = $afs::client::config_path
+  $cell            = $afs::client::cell
+  $afs_mount_point = $afs::client::afs_mount_point
+  $cache_dir       = $afs::client::cache_dir
+  $cache_size      = $afs::client::cache_size
+  $sysname         = $afs::client::sysname
+  $config_path     = $afs::client::config_path
 
   if $cell {
     file {'ThisCell':

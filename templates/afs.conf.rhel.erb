@@ -75,7 +75,7 @@ SMALL="-stat 300 -dcache 100 -daemons 2 -volumes 50"
 #     cache manager will choose appropriate values for any of -files, -stat,
 #     -chunksize, and -dcache that are not specified; as of 1.4.3, this is
 #     recommended
-CACHESIZE=<%= @client_cache_size %>
+CACHESIZE=<%= @cache_size %>
 #CACHESIZE=100000
 OPTIONS=" "
 #OPTIONS=AUTOMATIC
@@ -83,7 +83,7 @@ OPTIONS=" "
 
 # you should never need to change these settings
 AFSDIR=<%= @afs_mount_point %>
-CACHEDIR=<%= @client_cache_dir %>
+CACHEDIR=<%= @cache_dir %>
 CACHEINFO=/usr/vice/etc/cacheinfo
 
 # Set to "-verbose" for a lot of debugging information from afsd. Only
@@ -95,7 +95,7 @@ VERBOSE=
 #    /usr/afsws/etc/fs setserverprefs <host> <rank>
 #}
 afs_set_sysname() {
-  /usr/bin/fs sysname -newsys <%= (@afs_sysname).join(" ") %>
+  /usr/bin/fs sysname -newsys <%= (@sysname).join(" ") %>
 }
 
 # Either the name of an executable script or a set of commands go here.

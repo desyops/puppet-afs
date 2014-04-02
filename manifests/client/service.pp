@@ -1,6 +1,6 @@
 #PRIVATE CLASS: Do not call directly
 class afs::client::service {
-  $service_name = $afs::client::client_service_name
+  $service_name = $afs::client::service_name
 
   service { 'afs':
     ensure    => running,

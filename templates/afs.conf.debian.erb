@@ -75,8 +75,8 @@ OPTIONS=AUTOMATIC
 # set the variable to a space-separated list of sysnames.  The AFS client will
 # attempt to resolve @sys to each directory name in the order given.
 #AFS_SYSNAME=""
-<% if @afs_sysname -%>
-AFS_SYSNAME="<%= (@afs_sysname).join(" ") %>"
+<% if @sysname -%>
+AFS_SYSNAME="<%= (@sysname).join(" ") %>"
 <% end -%>
 
 # If you want to prefer particular servers for replicated volumes, you can
