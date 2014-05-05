@@ -9,6 +9,8 @@
     * [Classes](#classes)
         * [Class: afs](#class-afs)
         * [Class: afs::client](#class-afsclient)
+    * [Facts](#facts)
+        * [Fact: afs_cache_size](#fact-afs_cache_size)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development](#development)
 7. [Contact](#contact)
@@ -81,7 +83,7 @@ Cache directory for the AFS client. Should be a dedicated partition. Defaults to
 ##### `cache_size`
 Cache size for the AFS client. Should be 85% of `client_cache_dir`, if used on a dedicated partition. Defaults to 'AUTOMATIC' for Scientific Linux, the init value determines the actual cache size and sets the appropiate value.
 
-For Debian/Ubuntu, this defaults to '50000'.
+For Debian/Ubuntu, this defaults to `$::afs_cache_size` fact.
 
 ##### `sysname`
 Configure the AFS sysname for @sys variable in AFS pathnames. Supports an array of sysname.
@@ -101,8 +103,20 @@ Service name for the OpenAFS client daemon. Defaults to 'afs' for Scientific Lin
 ##### `service_status`
 Service status available for the OpenAFS client daemon. Defaults to 'true' for Scientific Linux and 'false' for Debian/Ubuntu.
 
+### Facts
+#### Fact: `afs_cache_size`
+This fact calculates the default AFS cache size for the Debian osfamily.
+
+The fact assumes a dedicated cache partition mounted at `/var/cache/openafs`.
+If it is not found, it will fall back to a cache size of 100 MB.
+If the dedicated partition is found, it will return 70% of the available 1K blocks.
+
+This behaviour is inspired by the OpenAFS client init script and a cachesize value of `AUTOMATIC`, which is used on Scientific Linux.
+
 ## Limitations
 This has been tested on Scientific Linux 6, Ubuntu 12.04 and Debian 7. Currently, only a client installation of OpenAFS is supported.
+
+The `afs_cache_size` fact uses a hard coded partition, which is `/var/cache/openafs`. The fact does not work, if it is used with the `afs::client::cache_dir` parameter.
 
 ## Development
 Please create issues and pull-requests at our project site [puppet-afs](https://github.com/desyops/puppet-afs).

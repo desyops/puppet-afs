@@ -16,7 +16,7 @@ class afs::params {
     }
     'Ubuntu': {
       $client_cache_dir = '/var/cache/openafs'
-      $client_cache_size = '50000'
+      $client_cache_size = $::afs_cache_size
       $sysname = ['amd64_ubu124', 'amd64_linux26']
       $config_path = '/etc/openafs'
       $client_package_name = 'openafs-client'
@@ -26,7 +26,7 @@ class afs::params {
     }
     'Debian': {
       $client_cache_dir = '/var/cache/openafs'
-      $client_cache_size = '50000'
+      $client_cache_size = $::afs_cache_size
       $sysname = ['amd64_ubu124', 'amd64_linux26']
       $config_path = '/etc/openafs'
       $client_package_name = 'openafs-client'

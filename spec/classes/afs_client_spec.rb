@@ -69,7 +69,10 @@ describe 'afs::client', :type => :class do
       it { should contain_file('afs.conf').with_content(/\/usr\/bin\/fs sysname -newsys amd64_rhel60 amd64_linux26/)}
     end
     describe 'on operatingsystem Debian/Ubuntu' do
-      let(:facts) {{ :operatingsystem => 'Debian', :osfamily => 'Debian' }}
+      let(:facts) {{ :operatingsystem => 'Debian',
+		     :osfamily => 'Debian',
+                     :afs_cache_size => '100000'
+      }}
       it { should contain_file('ThisCell').with({
         'ensure' => 'present',
         'path'   => '/etc/openafs/ThisCell',
@@ -99,7 +102,7 @@ describe 'afs::client', :type => :class do
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0644',
-        'content' => /\/afs:\/var\/cache\/openafs:50000/,
+        'content' => /\/afs:\/var\/cache\/openafs:100000/,
       })}
     end
   end
