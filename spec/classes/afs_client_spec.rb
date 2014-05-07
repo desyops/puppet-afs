@@ -13,6 +13,12 @@ describe 'afs::client', :type => :class do
     it { expect { should compile }.to  raise_error(Puppet::Error, /afs is not supported on unsupported./) }
   end
 
+  describe 'with invalid cache_size' do
+    let(:facts) { {:operatingsystem => 'Scientific' } }
+    let(:params) { {:cache_size => 'INVALID' } }
+    it { expect { should compile }.to raise_error(Puppet::Error, /cache_size is set to 'INVALID', must be 'AUTOMATIC' or a integer size/)}
+  end
+
   context 'afs::client::install' do
     describe "on operatingsystem Scientific" do
       let(:facts) {{ :operatingsystem => 'Scientific', :osfamily => 'RedHat' }}
@@ -28,7 +34,10 @@ describe 'afs::client', :type => :class do
       end
     end
     describe "on operatingsystem Debian/Ubuntu" do
-      let(:facts) {{ :operatingsystem => 'Debian', :osfamily => 'Debian' }}
+      let(:facts) {{ :operatingsystem => 'Debian',
+		     :osfamily => 'Debian',
+                     :afs_cache_size => '100000'
+      }}
       it 'should install OpenAFS client' do
         should contain_package('openafs-client').with({
           'ensure' => 'installed',
@@ -106,6 +115,7 @@ describe 'afs::client', :type => :class do
       })}
     end
   end
+
   context 'afs::client::service' do
     describe "on operatingsystem Scientific" do
       let(:facts) {{ :operatingsystem => 'Scientific' }}
@@ -117,7 +127,7 @@ describe 'afs::client', :type => :class do
       })}
     end
     describe "on operatingsystem Debian/ubuntu" do
-      let(:facts) {{ :operatingsystem => 'Debian' }}
+      let(:facts) {{ :operatingsystem => 'Debian', :afs_cache_size => '100000' }}
       it { should contain_service('afs').with({
         'ensure'    => 'running',
         'enable'    => true,

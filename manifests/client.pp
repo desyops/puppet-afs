@@ -17,6 +17,9 @@ class afs::client (
   $service_status    = $afs::params::client_service_status,
 ) inherits afs::params {
 
+  validate_re($cache_size, '^(AUTOMATIC|[0-9]+)$',
+  "cache_size is set to '${cache_size}', must be 'AUTOMATIC' or a integer size")
+
   anchor {'afs::client::begin': } ->
   class {'::afs::client::install': } ->
   class {'::afs::client::config': } ~>
