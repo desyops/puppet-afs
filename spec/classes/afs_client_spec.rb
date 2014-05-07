@@ -73,6 +73,7 @@ describe 'afs::client', :type => :class do
         'mode'    => '0755',
       })}
       it { should contain_file('afs.conf').with_content(/CACHESIZE=AUTOMATIC/)}
+      it { should contain_file('afs.conf').with_content(/OPTIONS=" "/)}
       it { should contain_file('afs.conf').with_content(/AFSDIR=\/afs/)}
       it { should contain_file('afs.conf').with_content(/CACHEDIR=\/var\/cache\/afs/)}
       it { should contain_file('afs.conf').with_content(/\/usr\/bin\/fs sysname -newsys amd64_rhel60 amd64_linux26/)}
@@ -98,6 +99,7 @@ describe 'afs::client', :type => :class do
         'mode'    => '0644',
       })}
       it { should contain_file('afs.conf').with_content(/AFS_SYSNAME="amd64_ubu124 amd64_linux26"/)}
+      it { should contain_file('afs.conf').with_content(/OPTIONS=" "/) }
       it { should contain_file('afs.conf.client').with({
         'ensure' => 'present',
         'path'   => '/etc/openafs/afs.conf.client',

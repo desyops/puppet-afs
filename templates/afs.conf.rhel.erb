@@ -80,7 +80,7 @@ SMALL="-stat 300 -dcache 100 -daemons 2 -volumes 50"
 #     recommended
 CACHESIZE=<%= @cache_size %>
 #CACHESIZE=100000
-OPTIONS=" "
+OPTIONS="<%= (@options_real).join(" ") %>"
 #OPTIONS=AUTOMATIC
 #OPTIONS=$SMALL
 

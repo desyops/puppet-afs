@@ -5,7 +5,10 @@ class afs::client::config {
   $cache_dir       = $afs::client::cache_dir
   $cache_size      = $afs::client::cache_size
   $sysname         = $afs::client::sysname
+  $options         = $afs::client::options
   $config_path     = $afs::client::config_path
+
+  $options_real = any2array($options)
 
   if $cell {
     file {'ThisCell':

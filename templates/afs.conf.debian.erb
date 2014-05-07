@@ -65,7 +65,7 @@ VERBOSE=
 #
 # You can override that default behavior by setting OPTIONS to a specific set
 # of flags.
-OPTIONS=AUTOMATIC
+OPTIONS="<%= (@options_real).join(" ") %>"
 
 # The default value for the client sysname (as returned by fs sysname) is
 # determined during the kernel module build and is taken from the architecture

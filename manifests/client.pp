@@ -9,6 +9,7 @@ class afs::client (
   $cache_dir         = $afs::params::client_cache_dir,
   $cache_size        = $afs::params::client_cache_size,
   $sysname           = $afs::params::sysname,
+  $options           = $afs::params::client_options,
 
   $config_path       = $afs::params::config_path,
   $package_name      = $afs::params::client_package_name,

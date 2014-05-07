@@ -88,6 +88,11 @@ For Debian/Ubuntu, this defaults to `$::afs_cache_size` fact.
 ##### `sysname`
 Configure the AFS sysname for @sys variable in AFS pathnames. Supports an array of sysname.
 
+##### `options`
+Configure the AFS client daemon options. Supports an array of settings.
+
+Defaults to ` ` (space-character), the afsd itself will choose the appropiate options.
+
 ##### `config_path`
 The configuration path for the client configuration files. Defaults to '/usr/vice/etc' for Scientific Linux and '/etc/openafs-client' for Debian/Ubuntu.
 
