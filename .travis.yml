@@ -1,11 +1,18 @@
 ---
-env:
-  - PUPPET_VERSION=3.1.1
-  - PUPPET_VERSION=3.2.3
-  - PUPPET_VERSION=3.4.2
 language: ruby
-notifications: ~
+bundler_args: --without development
+script: bundle exec rake spec SPEC_OPTS='--format documentation'
 rvm:
-  - "1.8.7"
-  - "1.9.3"
-script: "SPEC_OPTS='--format documentation' bundle exec rake spec && bundle exec rake lint"
+- 1.8.7
+- 1.9.3
+- 2.0.0
+env:
+  matrix:
+  - PUPPET_GEM_VERSION="~> 3.2.0"
+  - PUPPET_GEM_VERSION="~> 3.3.0"
+  - PUPPET_GEM_VERSION="~> 3.4.0"
+  - PUPPET_GEM_VERSION="~> 3.5.0" STRICT_VARIABLES="yes"
+matrix:
+  fast_finish: true
+notifications:
+  email: false
