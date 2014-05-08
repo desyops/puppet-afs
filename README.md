@@ -72,16 +72,16 @@ The AFS module's primary class for managing the OpenAFS client.
 **Parameters within `afs::client`:**
 
 ##### `cell`
-AFS cell the client should belong to. Defaults to 'example.org'
+AFS cell the client should belong to. Defaults to `example.org`
 
 ##### `afs_mount_point`
-Mountpoint for AFS. Defaults to '/afs'
+Mountpoint for AFS. Defaults to `/afs`
 
 ##### `cache_dir`
-Cache directory for the AFS client. Should be a dedicated partition. Defaults to '/var/cache/afs' for Scientific Linux and '/var/cache/openafs' for Debian/Ubuntu.
+Cache directory for the AFS client. Should be a dedicated partition. Defaults to `/var/cache/afs` for Scientific Linux and `/var/cache/openafs` for Debian/Ubuntu.
 
 ##### `cache_size`
-Cache size for the AFS client. Should be 85% of `client_cache_dir`, if used on a dedicated partition. Defaults to 'AUTOMATIC' for Scientific Linux, the init value determines the actual cache size and sets the appropiate value.
+Cache size for the AFS client. Should be 85% of `cache_dir`, if used on a dedicated partition. Defaults to `AUTOMATIC` for Scientific Linux, the init value determines the actual cache size and sets the appropiate value.
 
 For Debian/Ubuntu, this defaults to `$::afs_cache_size` fact.
 
@@ -94,19 +94,19 @@ Configure the AFS client daemon options. Supports an array of settings.
 Defaults to ` ` (space-character), the afsd itself will choose the appropiate options.
 
 ##### `config_path`
-The configuration path for the client configuration files. Defaults to '/usr/vice/etc' for Scientific Linux and '/etc/openafs-client' for Debian/Ubuntu.
+The configuration path for the client configuration files. Defaults to `/usr/vice/etc` for Scientific Linux and `/etc/openafs-client` for Debian/Ubuntu.
 
 ##### `package_name`
-Name of the client OpenAFS client package. Defaults to 'openafs-client' for Scientifc Linux and Debian/Ubuntu.
+Name of the client OpenAFS client package. Defaults to `openafs-client` for Scientifc Linux and Debian/Ubuntu.
 
 ##### `krb5_package_name`
-Name of the KRB5 package. Defaults to 'openafs-krb5' for Scientific Linux and Debian/Ubuntu. On Debian/Ubuntu installes additionally 'libpam-afs-session' for PAM support.
+Name of the KRB5 package. Defaults to `openafs-krb5` for Scientific Linux and Debian/Ubuntu. On Debian/Ubuntu installes additionally `libpam-afs-session` for PAM support.
 
 ##### `service_name`
-Service name for the OpenAFS client daemon. Defaults to 'afs' for Scientific Linux and 'openafs-client' for Debian/Ubuntu.
+Service name for the OpenAFS client daemon. Defaults to `afs` for Scientific Linux and `openafs-client` for Debian/Ubuntu.
 
 ##### `service_status`
-Service status available for the OpenAFS client daemon. Defaults to 'true' for Scientific Linux and 'false' for Debian/Ubuntu.
+Service status available for the OpenAFS client daemon. Defaults to `true` for Scientific Linux and `false` for Debian/Ubuntu.
 
 ### Facts
 #### Fact: `afs_cache_size`
@@ -119,7 +119,7 @@ If the dedicated partition is found, it will return 70% of the available 1K bloc
 This behaviour is inspired by the OpenAFS client init script and a cachesize value of `AUTOMATIC`, which is used on Scientific Linux.
 
 ## Limitations
-This has been tested on Scientific Linux 6, Ubuntu 12.04 and Debian 7. Currently, only a client installation of OpenAFS is supported.
+The module has only been tested on Scientific Linux 6, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS and Debian 7. Currently, only a client installation of OpenAFS is supported.
 
 The `afs_cache_size` fact uses a hard coded partition, which is `/var/cache/openafs`. The fact does not work, if it is used with the `afs::client::cache_dir` parameter.
 
