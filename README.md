@@ -93,6 +93,11 @@ Configure the AFS client daemon options. Supports an array of settings.
 
 Defaults to ` ` (space-character), the afsd itself will choose the appropiate options.
 
+##### `manage_service`
+Enable or disable service management.
+
+Defaults to `true`.
+
 ##### `config_path`
 The configuration path for the client configuration files. Defaults to `/usr/vice/etc` for Scientific Linux and `/etc/openafs-client` for Debian/Ubuntu.
 

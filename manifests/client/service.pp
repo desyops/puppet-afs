@@ -2,12 +2,15 @@
 class afs::client::service {
   $service_name   = $afs::client::service_name
   $service_status = $afs::client::service_status
+  $manage_service = $afs::client::manage_service
 
-  service { 'afs':
-    ensure    => running,
-    name      => $service_name,
-    hasstatus => $service_status,
-    enable    => true,
-    pattern   => '/sbin/afsd'
+  if $manage_service {
+    service { 'afs':
+      ensure    => running,
+      name      => $service_name,
+      hasstatus => $service_status,
+      enable    => true,
+      pattern   => '/sbin/afsd'
+    }
   }
 }

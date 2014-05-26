@@ -137,6 +137,10 @@ describe 'afs::client', :type => :class do
         'name'      => 'openafs-client',
       })}
     end
+    describe "with disabled service management" do
+      let(:params) {{ :manage_service => false }}
+      it { should_not contain_service('afs') }
+    end
   end
 end
 # vim:ft=ruby

@@ -3,6 +3,7 @@ class afs::params {
   $cell = 'example.org'
   $afs_mount_point = '/afs'
   $client_options = ' '
+  $client_manage_service = true
 
   case $::operatingsystem {
     'Scientific': {
