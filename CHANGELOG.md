@@ -1,3 +1,12 @@
+## 2014-05-26 Release 1.0.0-rc.1
+Bugfix and feature pre-release
+* Add fact `afs_cache_size` to determine cache size for the Debian osfamily
+  * See [Limitations](README.md#limitations) for this fact
+* Allow configuration of afs client daemon options
+* Add configuration for optional afs client service management
+* Bump required puppetlabs/stdlib version to >=4.0.0
+* Minor documentation update
+
 ## 2014-04-02 Release 0.6.1
 ### Summary:
 Bugfix release
