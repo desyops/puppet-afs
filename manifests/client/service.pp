@@ -2,7 +2,7 @@
 class afs::client::service {
   $service_name   = $afs::client::service_name
   $service_status = $afs::client::service_status
-  $manage_service = $afs::client::manage_service
+  $manage_service = str2bool($afs::client::manage_service)
 
   if $manage_service {
     service { 'afs':
