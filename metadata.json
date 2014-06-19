@@ -1,0 +1,47 @@
+{
+    "name": "desyops-afs",
+    "version": "1.0.0",
+    "author": "desyops",
+    "summary": "This module manages and installs OpenAFS",
+    "license": "Apache 2.0",
+    "source": "https://github.com/desyops/puppet-afs",
+    "project_page": "https://github.com/desyops/puppet-afs",
+    "issues_url": "https://github.com/desyops/puppet-afs/issues",
+    "dependencies": [
+        {
+            "name": "puppetlabs-stdlib",
+            "version_range": ">= 4.0.0"
+        }
+    ],
+    "requirements": [
+        {
+            "name": "puppet",
+            "version_requirement": "3.x"
+        },
+        {
+            "name": "pe",
+	    "version_requirement": "3.x"
+	}
+    ],
+    "operatingsystem_support": [
+        {
+            "operatingsystem": "Scientific",
+            "operatingsystemrelease": [
+                "6"
+            ]
+        },
+        {
+            "operatingsystem": "Debian",
+            "operatingsystemrelease": [
+                "7"
+            ]
+        },
+        {
+            "operatingsystem": "Ubuntu",
+            "operatingsystemrelease": [
+                "12.04",
+                "14.04"
+            ]
+        }
+    ]
+}

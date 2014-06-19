@@ -1,3 +1,10 @@
+## 2014-06-19 Release 1.0.0
+Bugfix and feature release. For a full list of changes, see notes
+for release 1.0.0-rc.1.
+
+Changes since 1.0.0-rc.1:
+* Use str2bool to convert strings into booleans for manage_service parameter
+
 ## 2014-05-26 Release 1.0.0-rc.1
 Bugfix and feature pre-release
 * Add fact `afs_cache_size` to determine cache size for the Debian osfamily
