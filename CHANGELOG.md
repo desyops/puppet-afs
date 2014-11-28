@@ -1,3 +1,7 @@
+## 2014-11-28 Release 1.0.1
+This release just fixes the incorrect module dependency on puppetlabs-stdlib.
+No other changes have been introduced.
+
 ## 2014-06-19 Release 1.0.0
 Bugfix and feature release. For a full list of changes, see notes
 for release 1.0.0-rc.1.

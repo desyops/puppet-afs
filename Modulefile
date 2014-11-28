@@ -1,5 +1,5 @@
 name 'desyops-afs'
-version '1.0.0'
+version '1.0.1'
 source 'https://github.com/desyops/puppet-afs'
 author 'DESY IT'
 license 'Apache License, Version 2.0'
