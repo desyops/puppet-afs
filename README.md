@@ -11,6 +11,7 @@
         * [Class: afs::client](#class-afsclient)
     * [Facts](#facts)
         * [Fact: afs_cache_size](#fact-afs_cache_size)
+        * [Facts: kmod](#facts-kmod)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development](#development)
 7. [Contact](#contact)
@@ -122,6 +123,13 @@ If it is not found, it will fall back to a cache size of 100 MB.
 If the dedicated partition is found, it will return 70% of the available 1K blocks.
 
 This behaviour is inspired by the OpenAFS client init script and a cachesize value of `AUTOMATIC`, which is used on Scientific Linux.
+
+#### Facts: `kmod`
+Three facts concerning the kernel module are available:
+
+* `kmod_isloaded_openafs`: Boolean tracking if kernel module is loaded
+* `kmod_filename_openafs`: Returns the filename of the module as returned by the `modinfo` command. Example: `/lib/modules/2.6.32-504.el6.x86_64/extra/openafs.ko`
+* `kmod_vermagic_openafs`: Returns the version magic string as returned by the `modinfo` command. Example: `2.6.32-504.el6.x86_64 SMP mod_unload modversions`
 
 ## Limitations
 The module has only been tested on Scientific Linux 6, Ubuntu 12.04 LTS, Ubuntu 14.04 LTS and Debian 7. Currently, only a client installation of OpenAFS is supported.
