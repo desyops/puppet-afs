@@ -14,12 +14,25 @@ describe 'afs::client', :type => :class do
   end
 
   describe 'with invalid cache_size' do
-    let(:facts) { {:operatingsystem => 'Scientific' } }
+    let(:facts) { {:operatingsystem => 'Scientific', :osfamily => 'RedHat' } }
     let(:params) { {:cache_size => 'INVALID' } }
     it { expect { is_expected.to compile }.to raise_error(Puppet::Error, /cache_size is set to 'INVALID', must be 'AUTOMATIC' or a integer size/)}
   end
 
   context 'afs::client::install' do
+    describe "on operatingsystem RedHat" do
+      let(:facts) {{ :operatingsystem => 'RedHat', :osfamily => 'RedHat' }}
+      it 'is_expected.to install OpenAFS client' do
+        is_expected.to contain_package('openafs-client').with({
+          'ensure' => 'installed',
+          'name'   => 'openafs-client',
+        })
+        is_expected.to contain_package('openafs-krb5').with({
+          'ensure' => 'installed',
+          'name'   => 'openafs-krb5',
+        })
+      end
+    end
     describe "on operatingsystem Scientific" do
       let(:facts) {{ :operatingsystem => 'Scientific', :osfamily => 'RedHat' }}
       it 'is_expected.to install OpenAFS client' do
@@ -57,6 +70,29 @@ describe 'afs::client', :type => :class do
   context 'afs::client::config' do
     describe 'on operatingsystem Scientific' do
       let(:facts) {{ :operatingsystem => 'Scientific', :osfamily => 'RedHat' }}
+      it { is_expected.to contain_file('ThisCell').with({
+        'ensure' => 'present',
+        'path'   => '/usr/vice/etc/ThisCell',
+        'owner'  => 'root',
+        'group'  => 'root',
+        'mode'   => '0644',
+        'content' => /example.org\n/,
+      })}
+      it { is_expected.to contain_file('afs.conf').with({
+        'ensure'  => 'present',
+        'path'    => '/etc/sysconfig/afs',
+        'owner'   => 'root',
+        'group'   => 'root',
+        'mode'    => '0755',
+      })}
+      it { is_expected.to contain_file('afs.conf').with_content(/CACHESIZE=AUTOMATIC/)}
+      it { is_expected.to contain_file('afs.conf').with_content(/OPTIONS=" "/)}
+      it { is_expected.to contain_file('afs.conf').with_content(/AFSDIR=\/afs/)}
+      it { is_expected.to contain_file('afs.conf').with_content(/CACHEDIR=\/var\/cache\/afs/)}
+      it { is_expected.to contain_file('afs.conf').with_content(/\/usr\/bin\/fs sysname -newsys amd64_rhel60 amd64_linux26/)}
+    end
+    describe 'on operatingsystem RedHat' do
+      let(:facts) {{ :operatingsystem => 'RedHat', :osfamily => 'RedHat' }}
       it { is_expected.to contain_file('ThisCell').with({
         'ensure' => 'present',
         'path'   => '/usr/vice/etc/ThisCell',
@@ -121,6 +157,15 @@ describe 'afs::client', :type => :class do
   context 'afs::client::service' do
     describe "on operatingsystem Scientific" do
       let(:facts) {{ :operatingsystem => 'Scientific', :osfamily => 'RedHat' }}
+      it { is_expected.to contain_service('afs').with({
+        'ensure'    => 'running',
+        'enable'    => true,
+        'hasstatus' => true,
+        'name'      => 'afs',
+      })}
+    end
+    describe "on operatingsystem RedHat" do
+      let(:facts) {{ :operatingsystem => 'RedHat', :osfamily => 'RedHat' }}
       it { is_expected.to contain_service('afs').with({
         'ensure'    => 'running',
         'enable'    => true,

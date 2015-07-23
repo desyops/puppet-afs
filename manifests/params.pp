@@ -16,6 +16,16 @@ class afs::params {
       $client_service_name = 'afs'
       $client_service_status = true
     }
+    'RedHat': {
+      $client_cache_dir = '/var/cache/afs'
+      $client_cache_size = 'AUTOMATIC'
+      $sysname = ['amd64_rhel60', 'amd64_linux26']
+      $config_path = '/usr/vice/etc'
+      $client_package_name = 'openafs-client'
+      $krb5_package_name = 'openafs-krb5'
+      $client_service_name = 'afs'
+      $client_service_status = true
+    }
     'Ubuntu': {
       $client_cache_dir = '/var/cache/openafs'
       $client_cache_size = $::afs_cache_size
