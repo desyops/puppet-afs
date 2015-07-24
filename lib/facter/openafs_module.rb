@@ -1,3 +1,5 @@
+require 'facter'
+
 Facter.debug("Running modinfo openafs")
 modinfo_output = Facter::Util::Resolution.exec('modinfo openafs 2>/dev/null')
 lsmod_output = Facter::Util::Resolution.exec('lsmod')
