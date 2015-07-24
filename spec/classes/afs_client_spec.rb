@@ -103,7 +103,7 @@ describe 'afs::client', :type => :class do
       })}
       it { is_expected.to contain_file('afs.conf').with({
         'ensure'  => 'present',
-        'path'    => '/etc/sysconfig/afs',
+        'path'    => '/etc/sysconfig/openafs',
         'owner'   => 'root',
         'group'   => 'root',
         'mode'    => '0755',

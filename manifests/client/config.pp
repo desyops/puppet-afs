@@ -23,13 +23,28 @@ class afs::client::config {
 
   case $::osfamily {
     'RedHat': {
-      file {'afs.conf':
-        ensure  => present,
-        path    => '/etc/sysconfig/afs',
-        content => template('afs/afs.conf.rhel.erb'),
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0755',
+      case $::operatingsystem {
+        'Scientific': {
+          file {'afs.conf':
+            ensure  => present,
+            path    => '/etc/sysconfig/afs',
+            content => template('afs/afs.conf.rhel.erb'),
+            owner   => 'root',
+            group   => 'root',
+            mode    => '0755',
+          }
+        }
+        'RedHat': {
+          file {'afs.conf':
+            ensure  => present,
+            path    => '/etc/sysconfig/openafs',
+            content => template('afs/afs.conf.rhel.erb'),
+            owner   => 'root',
+            group   => 'root',
+            mode    => '0755',
+          }
+        }
+        default: { }
       }
     }
     'Debian': {
