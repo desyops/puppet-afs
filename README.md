@@ -1,5 +1,7 @@
 # afs
-[![Build Status](https://travis-ci.org/desyops/puppet-afs.png?branch=master)](https://travis-ci.org/desyops/puppet-afs)
+
+**This module has been archived and will no longer receive updates**
+
 ## Table of Contents
 1. [Overview - What is the AFS module?](#overview)
 2. [Module Description - What does the module do?](#module-description)
