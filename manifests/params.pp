@@ -16,6 +16,17 @@ class afs::params {
       $client_service_name = 'afs'
       $client_service_status = true
     }
+    'CentOS': {
+      $client_cache_dir = '/var/cache/openafs'
+      $client_cache_size = 'AUTOMATIC'
+      $sysname = ['amd64_linux26']
+      $config_path = '/etc/openafs'
+      $client_package_name = 'openafs-client'
+      $krb5_package_name = 'openafs-krb5'
+      $dkms_package_name = 'dkms-openafs'
+      $client_service_name = 'openafs-client'
+      $client_service_status = true
+    }
     'Ubuntu': {
       $client_cache_dir = '/var/cache/openafs'
       $client_cache_size = $::afs_cache_size
